@@ -1,0 +1,13 @@
+obj\Debug\ZKEmSampleApp.exe
+obj\Debug\ZKEmSampleApp.pdb
+bin\Debug\ZKEmSampleApp.exe
+bin\Debug\ZKEmSampleApp.pdb
+bin\Debug\Interop.zkemkeeper.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Interop.zkemkeeper.dll
+obj\Debug\ZKEmSampleApp.csproj.ResolveComReference.cache
+obj\Debug\ZKEmSampleApp.FrmMain.resources
+obj\Debug\ZKEmSampleApp.csproj.GenerateResource.Cache
+obj\Debug\ZKEmSampleApp.Properties.Resources.resources
+obj\Debug\AxInterop.zkemkeeper.dll
+bin\Debug\AxInterop.zkemkeeper.dll

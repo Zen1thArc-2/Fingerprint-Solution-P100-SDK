@@ -1,0 +1,106 @@
+2005.3.3
+...
+2005.5.27
+修正了485通讯容易死机的问题
+支持短消息（仅在有此功能的机器上有效）。
+支持刷卡事件，当用户刷卡时响应刷卡事件。
+增加函数GetCardFun，可以得到当前设备是否支持卡，及支持何种卡。
+修正9位码通讯的问题。
+修正了A5、K8在通讯数据比较大时容易失败的问题。
+
+2005.06.10
+修正用软件设置组则“是否使用组”永远为否，问题是固件和Zkemsdk共同引起的。
+
+2005.07.18
+支持C＃开发，修正C＃下不能返回字符串的问题。
+
+2005.8.2
+加入设置通讯密码的功能
+修正OnAttTransaction中VerifyMode和AttState置反的问题。
+
+2005.8.5
+修改OnEnrollFinger事件的参数，增加 ActionResult、TemplateLength。
+修改Z_StartEnroll、Z_StartVerify、Z_StartIdentify、Z_CancelOption函数的返回值，以前只返回 Z_ERROR_IO，修改为返回具体的错误值。
+修改Z_SetUserTmp的返回值，增加Z_ERROR_DATA_EXISTED -5，当传指纹时，若该指纹已存在，则返回此值。
+
+2005.8.15
+增加函数 GetDoorState,得到当前门（门磁、继电器）的状态
+
+2005.8.17
+完善UpdateFirmware函数，增加判断Zem100、Zem200和判断版本号的功能
+
+2005.8.25
+支持Win98串口连接
+加入GetVendor函数
+
+2005.10.19
+增加函数：
+	BeginBatchUpdate(LONG dwMachineNumber,LONG UpdateFlag)
+	开始批量传输，调用这个函数后对以下操作：SetUserInfo、SetUserTmp、DelUserTmp、DeleteEnrollData(仅在参数为12时)都不真正写入设备，而是写入缓冲区。
+		UpdateFlag：0表示不强制更新，若存在则忽略，1表示强制更新。
+	BatchUpdate(LONG dwMachineNumber)
+	将缓冲区中要操作的数据一次发送给设备处理。
+	ClearData(LONG dwMachineNumber, LONG DataFlag)
+	清除指定数据
+		DataFlag
+		考勤记录 1
+		指纹数据 2
+		操作记录 4
+		用户记录 5
+		用户短消息表 6
+以上函数仅F4+支持
+
+2005.11.21
+增加GetDataFile文件,将指纹机中指定的数据备份到指定文件中
+其中DataFlag表示备份何种数据,其值如下
+	1	考勤记录
+	2	指纹数据
+	4	操作记录
+	5	用户信息
+
+2005.12.06
+重新组织了 扩展记录格式,支持WorkCode下载，并提供了下载办法:GetGeneralExtLogData
+
+2007-5-25
+1.add SetSysOption function
+
+2007-6-11
+1.修改了在批处理模式上传用户信息后，然后使用EnableUser函数时出错BUG
+
+
+2007-6-20
+1.修改了zkemkeeper.dll实时事件不支持9位BUG
+
+
+2007-6-25
+1.修改了zkemkeeper.dll在特殊情况下，导致上传用户后，出现非法时间段访问BUG。
+
+
+2007-7-4
+1.修改了zkemsck.dll支持ZEM500_TFT的SMS格式。
+
+
+2007-7-9
+1.增加MODEM拨号功能
+2.修改BatchUpdate上传8000枚指纹上传超时，假失败BUG。
+
+
+2007-7-17
+1.在MODEM拨号成功后（commpro），连接设备命令由2000改为9000
+
+
+2007-8-3
+1.修改在下载管理时如果是9位码的机器，用户登记号出错BUG。
+2.SSR_GetGeneralLogData函数支持WORKCODE功能。
+
+2007-10-22(zkemkeeper Ver:6.0.1.5)
+1:修改了SSR_Z_GetUserInfo函数返回密码错误BUG。
+2:修改Setsysoption函数BUG。
+3:增加要彩屏门禁相关函数
+
+2007-10-26(zkemkeeper Ver:6.0.1.6)
+1:增加了错按报报警功能
+
+2007-10-31(zkemkeeper Ver:6.0.1.7)
+1:增加彩屏机器支持批处理模式
+
